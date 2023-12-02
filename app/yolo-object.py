@@ -1,13 +1,35 @@
-from flask import flask
-from app import views
+import numpy as np
+from PIL import Image #python image library
+import matplotlib.pyplot as plt
+import cv2
+import matplotlib
+matplotlib.use('Agg')
+
+img=Image.open('./assets/foto.jpg')
+print('Image')
+print(img)
+img.show()
+
+#cv2.imshow(img)
+#cv2.imshow('rgb image',img)
 
 
+#matplotlib
 
-app= Flask(__name__)
+img_mat=plt.imread("./assets/foto.jpg")
+print('matplotlib')
+print(img_mat)
 
-app.add_url_rule(rule='/', endpoint='home', view_func=views)
-app.add_url_rule(rule='/app', endpoint='app', view_func=views)
-app.add_url_rule(rule='/app/gender', endpoint='gender', view_func=views)
+#cv2.imshow(img_mat)
+#cv2.imshow('rgb image',img)
 
-if __name__ == "__main__":
-    app.run(debug=True)
+'''#cv2
+
+img_cv=cv2.imread("./assets/foto.jpg")
+print('opencv')
+print(img_cv)
+cv2.imshow("CV2 img",img_cv)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+#cv2.imshow(img_cv)
+#cv2.imshow('rgb image',img)'''
